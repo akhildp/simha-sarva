@@ -14,14 +14,12 @@ theme:
     text: Roboto
     code: Roboto Mono
 
-docs_dir: content
-
 nav:
   - Home: index.md
-  - About the Firm: about.md
-  - Practice Areas: practice-areas.md
-  - People: people.md
-  - Contact: contact.md
+  - About the Firm: content/about.md
+  - Practice Areas: content/practice-areas.md
+  - People: content/people.md
+  - Contact: content/contact.md
 
 extra_javascript:
   - js/disclaimer-popup.js
