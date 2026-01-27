@@ -1,4 +1,5 @@
 site_name: Simha & Sarva 
+use_directory_urls: false
 
 theme:
   name: material
