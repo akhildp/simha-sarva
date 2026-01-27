@@ -1,4 +1,22 @@
 # People
+---
+
+## Advocate Saul Goodman
+
+**Education**  
+J.D., University of American Samoa (Correspondence Program)
+
+**Bar Enrollment**  
+Fictional Bar Council (for demonstrative purposes only)
+
+**Year of Enrollment**  
+1998
+
+**Practice Areas**  
+Criminal Defense, Commercial Disputes, Advisory Services
+
+**Courts Practiced In**  
+Fictional District and Trial Courts
 
 ---
 
@@ -37,25 +55,6 @@ Criminal Law, Constitutional Law, Trial Advocacy
 
 **Courts Practiced In**  
 Fictional Trial Courts
-
----
-
-## Advocate Saul Goodman
-
-**Education**  
-J.D., University of American Samoa (Correspondence Program)
-
-**Bar Enrollment**  
-Fictional Bar Council (for demonstrative purposes only)
-
-**Year of Enrollment**  
-1998
-
-**Practice Areas**  
-Criminal Defense, Commercial Disputes, Advisory Services
-
-**Courts Practiced In**  
-Fictional District and Trial Courts
 
 ---
 
