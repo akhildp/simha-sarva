@@ -1,0 +1,29 @@
+site_name: Simha & Sarva 
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.tabs
+    - navigation.top
+  palette:
+    - scheme: default
+      primary: blue grey
+      accent: blue grey
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+nav:
+  - Home: content/index.md
+  - About the Firm: content/about.md
+  - Practice Areas: content/practice-areas.md
+  - People: content/people.md
+  - Contact: content/contact.md
+
+extra_javascript:
+  - js/disclaimer-popup.js
+
+extra_css:
+  - css/custom.css
+  - css/disclaimer.css

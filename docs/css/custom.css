@@ -1,0 +1,9 @@
+body {
+  font-family: Georgia, serif;
+}
+
+.md-typeset img {
+  max-width: 720px;
+  display: block;
+  margin: 1.5rem auto;
+}
