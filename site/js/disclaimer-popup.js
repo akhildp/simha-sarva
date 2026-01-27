@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.style.overflow = "";
     document.getElementById("bci-disclaimer-overlay").remove();
 
-    window.location.href = "/content/";
+    window.location.href = "/";
   });
     });
 });
