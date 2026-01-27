@@ -1,4 +1,5 @@
 site_name: Simha & Sarva 
+site_url: https://akhildp.github.io/simha-sarva/
 use_directory_urls: false
 
 theme:
