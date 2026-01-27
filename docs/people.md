@@ -7,7 +7,7 @@
 J.D., University of American Samoa (Correspondence Program)
 
 **Bar Enrollment**  
-Fictional Bar Council (for demonstrative purposes only)
+Bar Council (for demonstrative purposes only)
 
 **Year of Enrollment**  
 1998
