@@ -7,3 +7,8 @@ body {
   display: block;
   margin: 1.5rem auto;
 }
+
+/* Remove in-page table of contents */
+.md-nav--secondary {
+  display: none !important;
+}

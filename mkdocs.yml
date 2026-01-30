@@ -4,6 +4,8 @@ use_directory_urls: false
 
 theme:
   name: material
+  features:
+    - toc.integrate: false
   language: en
   features:
     - navigation.tabs
