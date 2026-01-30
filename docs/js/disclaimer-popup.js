@@ -26,8 +26,16 @@ document.addEventListener("DOMContentLoaded", function () {
   document.body.insertAdjacentHTML("beforeend", html);
 
   document.getElementById("bci-agree-btn").addEventListener("click", function () {
-    sessionStorage.setItem("bciAccepted", "true");
-    document.body.style.overflow = "";
-    document.getElementById("bci-disclaimer-overlay").remove();
-  });
+  sessionStorage.setItem("bciAccepted", "true");
+
+  const overlay = document.getElementById("bci-disclaimer-overlay");
+  overlay.classList.add("fade-out");
+
+  document.body.style.overflow = "";
+
+  setTimeout(() => {
+    overlay.remove();
+  }, 250);
+});
+
 });

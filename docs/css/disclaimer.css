@@ -33,3 +33,68 @@
   cursor: pointer;
   font-size: 0.9rem;
 }
+
+/* Overlay fade-in */
+#bci-disclaimer-overlay {
+  opacity: 0;
+  animation: overlayFadeIn 0.35s ease-out forwards;
+}
+
+/* Box slide + fade */
+.bci-disclaimer-box {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: boxSlideIn 0.4s ease-out forwards;
+  animation-delay: 0.1s;
+}
+
+/* Exit animation */
+#bci-disclaimer-overlay.fade-out {
+  animation: overlayFadeOut 0.25s ease-in forwards;
+}
+
+#bci-disclaimer-overlay.fade-out .bci-disclaimer-box {
+  animation: boxFadeOut 0.2s ease-in forwards;
+}
+
+/* Keyframes */
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes overlayFadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes boxSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes boxFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #bci-disclaimer-overlay,
+  .bci-disclaimer-box {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
