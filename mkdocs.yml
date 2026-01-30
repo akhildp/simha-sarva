@@ -15,7 +15,10 @@ theme:
     - scheme: default
       primary: blue grey
       accent: blue grey
-  font: false
+  font:
+    text: Inter
+    code: Inter
+
 extra:
   generator: false
   
@@ -28,7 +31,11 @@ nav:
 
 extra_javascript:
   - js/disclaimer-popup.js
+  - js/people-toggle.js
 
 extra_css:
   - css/custom.css
   - css/disclaimer.css
+
+markdown_extensions:
+  - md_in_html

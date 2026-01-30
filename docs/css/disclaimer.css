@@ -9,19 +9,46 @@
 }
 
 .bci-disclaimer-box {
-  background: #ffffff;
-  color: #222;
-  max-width: 900px;
-  padding: 2rem;
-  border-radius: 4px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.1rem;    /* ~18px */
-  line-height: 1.6;
+  background: #f7eeee;
+  max-width: 1200px;
+   padding: 2rem 2.25rem;
+  border-radius: 6px;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.04);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.65rem;
+  line-height: 1.3;
+  color: #1F2933;
 }
 
 .bci-disclaimer-box h2 {
-  margin-top: 0;
-  font-size: 1.25rem;
+  text-align: center;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: 0;
+}
+
+.bci-disclaimer-box h2::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: #D1D5DB;
+  margin: 0.75rem auto 0;
+}
+
+.bci-disclaimer-box p {
+  margin-bottom: 0.9rem;
+}
+
+.disclaimer-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.75rem;
 }
 
 .bci-disclaimer-box button {
@@ -33,6 +60,39 @@
   cursor: pointer;
   font-size: 0.9rem;
 }
+.disclaimer-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.75rem;
+}
+
+#bci-agree-btn,
+.exit-link {
+  height: 40px;
+  padding: 0 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0.9rem;
+  line-height: 1;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#bci-agree-btn {
+  background: #111827;
+  color: #fff;
+  border: none;
+}
+
+.exit-link {
+  background: transparent;
+  border: 1px solid #D1D5DB;
+  color: #374151;
+}
+
 
 /* Overlay fade-in */
 #bci-disclaimer-overlay {
