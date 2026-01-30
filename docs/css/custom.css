@@ -1,47 +1,134 @@
 /* =========================================================
-   MATERIAL COLOR OVERRIDES (KILL TEAL / BLUE-GREEN)
+   FORCE MATERIAL UI TO NEUTRAL (CSS-ONLY)
+   Works even if palette is set in mkdocs.yml
 ========================================================= */
-
 :root {
-  /* Primary brand color (deep slate) */
-  --md-primary-fg-color: #0F172A;
-  --md-primary-fg-color--light: #1E293B;
-  --md-primary-fg-color--dark: #020617;
+  --accent-color: #9A8356;      /* muted gold */
+  --accent-color-soft: #E7DFC9;
+}
+/* -------------------------
+   HEADER + NAV
+-------------------------- */
 
-  /* Accent (very restrained muted gold / gray) */
-  --md-accent-fg-color: #475569;
-  --md-accent-fg-color--transparent: rgba(71, 85, 105, 0.1);
-
-  /* Default text */
-  --md-default-fg-color: #0F172A;
-  --md-default-fg-color--light: #334155;
-  --md-default-fg-color--lighter: #64748B;
-
-  /* Backgrounds */
-  --md-default-bg-color: #FFFFFF;
-  --md-code-bg-color: #F8FAFC;
-
-  /* Borders */
-  --md-typeset-table-color: #E5E7EB;
+.md-header,
+.md-tabs {
+  background-color: #ffffff !important;
+  color: #0F172A !important;
+  border-bottom: 1px solid #E5E7EB;
 }
 
 
-/* =========================================================
-   GLOBAL LOOK & FEEL
-========================================================= */
-
-body {
-  color: #0F172A;
+.md-header__title,
+.md-tabs__link {
+  color: #0F172A !important;
 }
 
-h1, h2, h3 {
-  color: #0F172A;
+/* Active tab */
+.md-tabs__link--active {
+  color: #0F172A !important;
+  border-bottom: 2px solid var(--accent-color);
 }
 
-/* Subtle background rhythm */
-.md-content {
-  padding: 1.75rem 1.25rem;
+/* -------------------------
+   LINKS (kill teal everywhere)
+-------------------------- */
+
+.md-typeset a {
+  color: #0F172A !important;
+  text-decoration: underline;
+  text-decoration-color: #CBD5E1;
 }
+
+.md-typeset a:hover {
+  color: #020617 !important;
+  text-decoration-color: #0F172A;
+}
+
+/* -------------------------
+   ICONS
+-------------------------- */
+
+.md-icon,
+.md-header__button,
+.md-tabs__link svg {
+  color: #0F172A !important;
+  fill: #0F172A !important;
+}
+
+/* -------------------------
+   BUTTONS
+-------------------------- */
+
+.md-button {
+  background: transparent !important;
+  color: #0F172A !important;
+  border: 1px solid #CBD5E1;
+}
+
+.md-button:hover {
+  background: #F8FAFC;
+  border-color: #94A3B8;
+}
+
+/* -------------------------
+   TOC + INLINE UI
+-------------------------- */
+
+.md-nav__link--active,
+.md-nav__link:hover {
+  color: #020617 !important;
+}
+
+/* -------------------------
+   SEARCH (even if hidden)
+-------------------------- */
+
+.md-search__input,
+.md-search__icon {
+  color: #0F172A !important;
+}
+
+/* -------------------------
+   FOCUS / HIGHLIGHT STATES
+-------------------------- */
+
+:focus-visible {
+  outline: 2px solid #CBD5E1 !important;
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background: #E5E7EB;
+}
+
+/* -------------------------
+   REMOVE REMAINING TEAL TINTS
+-------------------------- */
+
+[data-md-color-primary],
+[data-md-color-accent] {
+  background: none !important;
+  color: inherit !important;
+}
+/* Center the tabs container to match content width */
+.md-tabs__inner {
+  max-width: 1100px;      /* match people grid / content */
+  margin: 0 auto;
+}
+
+/* Justify tabs within that centered container */
+.md-tabs__list {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Prevent odd shrinking */
+.md-tabs__item {
+  flex: 0 0 auto;
+}
+
 
 /* Remove sidebars & search */
 .md-nav--secondary,
@@ -51,9 +138,14 @@ h1, h2, h3 {
 }
 
 .md-main__inner {
-  max-width: 1600px;
+  max-width: 1300px;   /* pick your ideal reading width */
   margin-left: auto;
   margin-right: auto;
+}
+
+.centered-container {
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
 /* =========================================================

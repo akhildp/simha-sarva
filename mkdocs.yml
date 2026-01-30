@@ -11,10 +11,6 @@ theme:
   features:
     - navigation.tabs
     - navigation.top
-  palette:
-    - scheme: default
-      primary: blue grey
-      accent: blue grey
   font:
     text: Inter
     code: Inter
