@@ -1,4 +1,32 @@
 /* =========================================================
+   MATERIAL COLOR OVERRIDES (KILL TEAL / BLUE-GREEN)
+========================================================= */
+
+:root {
+  /* Primary brand color (deep slate) */
+  --md-primary-fg-color: #0F172A;
+  --md-primary-fg-color--light: #1E293B;
+  --md-primary-fg-color--dark: #020617;
+
+  /* Accent (very restrained muted gold / gray) */
+  --md-accent-fg-color: #475569;
+  --md-accent-fg-color--transparent: rgba(71, 85, 105, 0.1);
+
+  /* Default text */
+  --md-default-fg-color: #0F172A;
+  --md-default-fg-color--light: #334155;
+  --md-default-fg-color--lighter: #64748B;
+
+  /* Backgrounds */
+  --md-default-bg-color: #FFFFFF;
+  --md-code-bg-color: #F8FAFC;
+
+  /* Borders */
+  --md-typeset-table-color: #E5E7EB;
+}
+
+
+/* =========================================================
    GLOBAL LOOK & FEEL
 ========================================================= */
 
