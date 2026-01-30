@@ -24,11 +24,11 @@ extra:
   
 nav:
   - Home: index.md
-  - Firm Philpsophy: philpsophy.md
-  - Practice Areas: practice-areas.md
+  - Firm Philpsophy: philosophy.md
   - People: people.md
-  - Blog and updates: blog.md
+  - Practice Areas: practice-areas.md
   - About the Firm: about.md
+  - Blog and updates: blog.md
   - Contact: contact.md
 
 extra_javascript:
