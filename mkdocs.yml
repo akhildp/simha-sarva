@@ -5,6 +5,7 @@ use_directory_urls: false
 theme:
   name: material
   features:
+    - navigation.top
     - toc.integrate: false
   language: en
   features:
@@ -14,9 +15,7 @@ theme:
     - scheme: default
       primary: blue grey
       accent: blue grey
-  font:
-    text: Roboto
-    code: Roboto Mono
+  font: false
 extra:
   generator: false
   
