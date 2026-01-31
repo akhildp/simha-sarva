@@ -224,3 +224,33 @@
     width: 100%;
   }
 }
+
+/* ===============================
+   FIX: Mobile scrolling + buttons
+=============================== */
+
+#bci-disclaimer-overlay {
+  padding: 1rem; /* prevents edge clipping on phones */
+}
+
+.bci-disclaimer-box {
+  max-height: 100dvh;
+  width: 100%;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+}
+.bci-disclaimer-box > *:not(.disclaimer-actions) {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  flex: 1 1 auto;
+}
+
+.disclaimer-actions {
+  flex-shrink: 0;
+  position: sticky;
+  bottom: 0;
+  background: #f7eeee;
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+}
