@@ -248,7 +248,7 @@
 }
 
 .disclaimer-actions {
-  flex-shrink: 0;
+  flex-shrink: 1;
   position: sticky;
   bottom: 0;
   background: #f7eeee;
