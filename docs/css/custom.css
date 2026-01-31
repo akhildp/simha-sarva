@@ -309,3 +309,68 @@
 .md-typeset p + p {
   text-indent: 1.5em;
 }
+/* ===============================
+   DISCLAIMER – MOBILE FIX
+=============================== */
+
+.disclaimer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1rem;
+}
+
+.disclaimer-modal {
+  background: #ffffff;
+  color: #0F172A;
+
+  width: 100%;
+  max-width: 640px;
+  max-height: calc(100vh - 2rem);
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.disclaimer-content {
+  padding: 1.5rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  flex: 1 1 auto;
+}
+
+.disclaimer-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #E5E7EB;
+
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  .disclaimer-modal {
+    max-width: 100%;
+    border-radius: 4px;
+  }
+
+  .disclaimer-actions {
+    flex-direction: column;
+  }
+
+  .disclaimer-actions button {
+    width: 100%;
+  }
+}
