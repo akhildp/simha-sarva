@@ -1,7 +1,3 @@
-# About the Firm
-
-The firm was established in 2025 and advises clients on matters of Indian law.
-
 ## The Judicial Advantage: An Inside-Out Perspective
 Most legal strategies are built on how to present a case. At Simha & Sarwa Associates, our strategies are built on how a case is decided.
 
