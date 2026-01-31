@@ -8,7 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
   <div class="bci-disclaimer-box">
 
     <h2>Disclaimer & Confirmation</h2>
-
+    <br>
+    <br>
     <p>
       The user visiting this website (www.simhasarwa.com) acknowledges and confirms that they are seeking information about Simha & Sarwa Associates of their own accord and volition. By clicking the "I Agree" button below, the user expressly acknowledges the following:
     <br>
