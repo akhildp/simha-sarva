@@ -205,6 +205,12 @@
   color: var(--disclaimer-text);
 }
 
+#bci-agree-btn:focus-visible,
+.exit-link:focus-visible {
+  outline: 2px solid var(--disclaimer-text);
+  outline-offset: 2px;
+}
+
 /* =========================================================
    MOBILE
 ========================================================= */

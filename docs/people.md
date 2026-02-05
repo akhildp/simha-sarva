@@ -2,7 +2,7 @@
 
 <div class="people-grid">
 
-  <div class="person-card">
+  <div class="person-card" role="button" tabindex="0" aria-expanded="false" aria-label="Expand bio for Ankit Sarwa">
   <img src="images/ankit.png" alt="Ankit Sarwa" class="person-photo">
 
 <h3>Ankit Sarwa</h3>
@@ -21,7 +21,7 @@
     </div>
   </div>
 
-  <div class="person-card">
+  <div class="person-card" role="button" tabindex="0" aria-expanded="false" aria-label="Expand bio for Keerthi Simha">
   <img src="images/keerthi.jfif" class="person-photo" alt="Keerthi Simha">
   <h3>Keerthi Simha</h3>
   <p class="person-role">Founding Partner</p>

@@ -14,6 +14,7 @@ theme:
   font:
     text: Inter
     code: Inter
+  favicon: images/favicon.svg
 
 extra:
   generator: false
@@ -28,8 +29,10 @@ nav:
   - Contact: contact.md
 
 extra_javascript:
+  - js/skip-link.js
   - js/disclaimer-popup.js
   - js/people-toggle.js
+  - js/footer-and-backtotop.js
 
 extra_css:
   - css/custom.css
