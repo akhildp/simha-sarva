@@ -1,0 +1,71 @@
+backend:
+  name: github
+  repo: akhildp/simha-sarva
+  branch: master # Checked via git status earlier
+
+# Media settings
+media_folder: docs/images
+public_folder: images
+
+# Site URL for preview
+site_url: https://akhildp.github.io/simha-sarva/
+
+# Display settings
+display_url: https://akhildp.github.io/simha-sarva/
+logo_url: https://akhildp.github.io/simha-sarva/images/favicon.svg # Using favicon as logo for now
+
+# Editorial Workflow (optional, enables drafts)
+publish_mode: simple
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "docs/index.md"
+        label: "Home Page"
+        name: "index"
+        fields:
+          - {label: "Title", name: "title", widget: "string", required: false}
+          - {label: "Body", name: "body", widget: "markdown"}
+      
+      - file: "docs/about.md"
+        label: "About the Firm"
+        name: "about"
+        fields:
+          - {label: "Title", name: "title", widget: "string", required: false}
+          - {label: "Body", name: "body", widget: "markdown"}
+
+      - file: "docs/philosophy.md"
+        label: "Firm Philosophy"
+        name: "philosophy"
+        fields:
+          - {label: "Title", name: "title", widget: "string", required: false}
+          - {label: "Body", name: "body", widget: "markdown"}
+
+      - file: "docs/people.md"
+        label: "People"
+        name: "people"
+        fields:
+          - {label: "Title", name: "title", widget: "string", required: false}
+          - {label: "Body", name: "body", widget: "markdown"}
+
+      - file: "docs/practice-areas.md"
+        label: "Practice Areas"
+        name: "practice-areas"
+        fields:
+          - {label: "Title", name: "title", widget: "string", required: false}
+          - {label: "Body", name: "body", widget: "markdown"}
+
+      - file: "docs/blog.md"
+        label: "Blog"
+        name: "blog"
+        fields:
+          - {label: "Title", name: "title", widget: "string", required: false}
+          - {label: "Body", name: "body", widget: "markdown"}
+
+      - file: "docs/contact.md"
+        label: "Contact"
+        name: "contact"
+        fields:
+          - {label: "Title", name: "title", widget: "string", required: false}
+          - {label: "Body", name: "body", widget: "markdown"}
