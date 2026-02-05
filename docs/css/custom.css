@@ -198,6 +198,242 @@
 }
 
 /* =========================================================
+   HEADING HIERARCHY
+========================================================= */
+
+.md-typeset h1:first-child {
+  margin-top: 0;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.md-typeset h1:not(:first-child) {
+  margin-top: var(--space-12);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-2);
+  border-bottom: 2px solid var(--color-border);
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.md-typeset h2 {
+  margin-top: var(--space-10);
+  margin-bottom: var(--space-3);
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.md-typeset h2 + p,
+.md-typeset h3 + p {
+  margin-top: 0;
+}
+
+.md-typeset h3 {
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-2);
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* =========================================================
+   PAGE HERO (HOME)
+========================================================= */
+
+.page-hero {
+  background: linear-gradient(180deg, var(--color-accent-subtle) 0%, var(--color-surface) 100%);
+  border-radius: var(--radius-lg);
+  padding: var(--space-10) var(--space-8);
+  margin-bottom: var(--space-10);
+  text-align: center;
+  border: 1px solid var(--color-border);
+}
+
+.page-hero .hero-title {
+  margin: 0 0 var(--space-2);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--color-text);
+  line-height: 1.15;
+}
+
+.page-hero .hero-tagline {
+  margin: 0 0 var(--space-6);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 500;
+  color: var(--color-accent);
+  letter-spacing: 0.02em;
+}
+
+.page-hero .hero-image {
+  width: 100%;
+  max-width: 56rem;
+  height: auto;
+  max-height: 20rem;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  display: block;
+  margin-inline: auto;
+}
+
+/* =========================================================
+   SECTION PANELS & CARDS
+========================================================= */
+
+.section-panel {
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6) var(--space-8);
+  margin-bottom: var(--space-6);
+}
+
+.section-panel h2 {
+  margin-top: 0;
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  color: var(--color-text);
+}
+
+.section-panel:first-child h2 {
+  margin-top: 0;
+}
+
+.content-grid,
+.foundation-grid,
+.advantages-grid {
+  display: grid;
+  gap: var(--space-6);
+  margin: var(--space-6) 0;
+}
+
+.foundation-grid,
+.advantages-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+}
+
+.content-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  transition: box-shadow var(--duration-normal) var(--ease-out),
+              border-color var(--duration-normal) var(--ease-out);
+}
+
+.content-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-accent-muted);
+}
+
+.content-card__title {
+  margin: 0 0 var(--space-2);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  letter-spacing: 0.01em;
+}
+
+.content-card__text {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--color-text);
+  text-align: justify;
+}
+
+/* Practice areas: same card style, full-width cards in a stack or grid */
+.practice-grid {
+  display: grid;
+  gap: var(--space-6);
+  margin: var(--space-8) 0;
+}
+
+.practice-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6) var(--space-8);
+  border-inline-start: 4px solid var(--color-accent);
+  transition: box-shadow var(--duration-normal) var(--ease-out),
+              border-color var(--duration-normal) var(--ease-out);
+}
+
+.practice-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-accent-muted);
+  border-inline-start-color: var(--color-accent);
+}
+
+.practice-card__title {
+  margin: 0 0 var(--space-2);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.practice-card__text {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  text-align: justify;
+}
+
+/* =========================================================
+   SECTION DIVIDERS
+========================================================= */
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+  margin: var(--space-10) 0;
+  border: none;
+}
+
+/* =========================================================
+   IMAGES (GLOBAL)
+========================================================= */
+
+.md-typeset img {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.md-typeset p img {
+  margin: var(--space-4) 0;
+}
+
+.md-typeset figure,
+.md-typeset .image-caption {
+  margin: var(--space-4) 0 var(--space-6);
+}
+
+.md-typeset img + em,
+.md-typeset .image-caption {
+  display: block;
+  margin-top: var(--space-2);
+  font-size: 0.875rem;
+  color: var(--color-text-soft);
+  font-style: normal;
+  text-align: center;
+}
+
+/* =========================================================
    PEOPLE PAGE – MODERN CARD LAYOUT
 ========================================================= */
 
@@ -264,7 +500,7 @@
   aspect-ratio: 1;
   object-fit: cover;
   display: block;
-  margin-inline: auto var(--space-4);
+  margin: 0 auto var(--space-4);
   border-radius: var(--radius-md);
   transition: filter var(--duration-normal) var(--ease-out);
 }
@@ -280,6 +516,7 @@
   letter-spacing: 0.02em;
   color: var(--color-text);
   transition: color var(--duration-fast);
+  text-align: center;
 }
 
 .person-card:hover h3,
@@ -288,10 +525,11 @@
 }
 
 .person-role {
-  margin-top: var(--space-1);
+  margin: var(--space-1) 0 0;
   font-size: 0.875rem;
   color: var(--color-text-soft);
   font-weight: 500;
+  text-align: center;
 }
 
 .person-bio {
@@ -337,6 +575,30 @@
 @media (max-width: 768px) {
   .md-main__inner {
     padding-inline: var(--space-4);
+  }
+
+  .page-hero {
+    padding: var(--space-6) var(--space-4);
+    margin-bottom: var(--space-8);
+  }
+
+  .section-panel {
+    padding: var(--space-5) var(--space-5);
+  }
+
+  .foundation-grid,
+  .advantages-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .content-card,
+  .practice-card {
+    padding: var(--space-5);
+  }
+
+  .practice-card {
+    padding-inline-start: var(--space-5);
+    border-inline-start-width: 3px;
   }
 
   .people-grid {
