@@ -29,6 +29,7 @@ nav:
   - Contact: contact.md
 
 extra_javascript:
+  - https://identity.netlify.com/v1/netlify-identity-widget.js
   - js/skip-link.js
   - js/disclaimer-popup.js
   - js/people-toggle.js

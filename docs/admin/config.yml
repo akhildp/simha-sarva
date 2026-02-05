@@ -1,9 +1,8 @@
 backend:
-  name: github
-  repo: akhildp/simha-sarva
+  name: git-gateway
   branch: master
   
-local_backend: true
+# local_backend: true
 
 # Media settings
 media_folder: docs/images
