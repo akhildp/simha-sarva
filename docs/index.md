@@ -29,7 +29,11 @@ At Simha & Sarwa Associates, we offer a rare vantage point. Our founding partner
 
 ### Awards & Honours
 
+*Coming soon.*
+
 ### Client testimonies
+
+*Coming soon.*
 
 <img src="images/lawlibrary.jpg" alt="Law library" />
 <span class="image-caption">Library reference image for illustrative purposes</span>
