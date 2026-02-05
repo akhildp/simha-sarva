@@ -54,10 +54,13 @@
    GLOBAL / MATERIAL OVERRIDES
 ========================================================= */
 
-.md-nav--secondary,
-.md-sidebar--primary,
-.md-search {
-  display: none !important;
+/* Hide sidebar and search on desktop only; allow drawer to show on mobile (< 1220px) */
+@media (min-width: 1220px) {
+  .md-nav--secondary,
+  .md-sidebar--primary,
+  .md-search {
+    display: none !important;
+  }
 }
 
 .md-main__inner {
