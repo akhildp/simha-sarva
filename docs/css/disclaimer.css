@@ -1,256 +1,257 @@
+/* =========================================================
+   MODERN DISCLAIMER MODAL – DESIGN TOKENS
+========================================================= */
+
+:root {
+  --disclaimer-bg: #fafaf9;
+  --disclaimer-border: #e7e5e4;
+  --disclaimer-text: #1c1917;
+  --disclaimer-text-muted: #57534e;
+  --disclaimer-overlay: rgba(15, 23, 42, 0.5);
+  --disclaimer-radius: 16px;
+  --disclaimer-shadow: 0 24px 48px rgba(15, 23, 42, 0.12), 0 8px 16px rgba(15, 23, 42, 0.08);
+  --disclaimer-btn-primary: #1c1917;
+  --disclaimer-btn-primary-hover: #292524;
+  --disclaimer-btn-secondary-border: #d6d3d1;
+  --disclaimer-btn-secondary-text: #44403c;
+  --disclaimer-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --disclaimer-duration: 0.3s;
+}
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
 #bci-disclaimer-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
   z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: var(--space-4, 1rem);
+  background: var(--disclaimer-overlay);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  animation: disclaimerOverlayIn 0.35s var(--disclaimer-ease) forwards;
 }
 
+#bci-disclaimer-overlay.fade-out {
+  animation: disclaimerOverlayOut 0.25s var(--disclaimer-ease) forwards;
+}
+
+@keyframes disclaimerOverlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes disclaimerOverlayOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+/* =========================================================
+   MODAL BOX
+========================================================= */
+
 .bci-disclaimer-box {
-  background: #f7eeee;
-  max-width: 1200px;
-   padding: 2rem 2.25rem;
-  border-radius: 6px;
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.08),
-    0 2px 6px rgba(0, 0, 0, 0.04);
+  background: var(--disclaimer-bg);
+  color: var(--disclaimer-text);
+  width: 100%;
+  max-width: 42rem;
+  max-height: min(88vh, 90dvh);
+  border-radius: var(--disclaimer-radius);
+  box-shadow: var(--disclaimer-shadow);
+  border: 1px solid var(--disclaimer-border);
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
-               "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 0.65rem;
-  line-height: 1.3;
-  color: #1F2933;
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(0.8125rem, 1.5vw, 0.875rem);
+  line-height: 1.55;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(16px) scale(0.98);
+  animation: disclaimerBoxIn 0.4s var(--disclaimer-ease) 0.06s forwards;
+}
+
+#bci-disclaimer-overlay.fade-out .bci-disclaimer-box {
+  animation: disclaimerBoxOut 0.22s var(--disclaimer-ease) forwards;
+}
+
+@keyframes disclaimerBoxIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes disclaimerBoxOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(8px) scale(0.99);
+  }
+}
+
+/* Scrollable body */
+.bci-disclaimer-box > h2,
+.bci-disclaimer-box > p {
+  padding-inline: var(--space-8, 2rem);
+  padding-top: var(--space-8, 2rem);
+}
+
+.bci-disclaimer-box > p {
+  padding-bottom: var(--space-4, 1rem);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  flex: 1 1 auto;
+  margin: 0;
 }
 
 .bci-disclaimer-box h2 {
   text-align: center;
-  font-size: 1.05rem;
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
   font-weight: 600;
-  margin-bottom: 1rem;
-  letter-spacing: 0;
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--space-4, 1rem);
+  color: var(--disclaimer-text);
+  flex-shrink: 0;
 }
 
 .bci-disclaimer-box h2::after {
   content: "";
   display: block;
   width: 48px;
-  height: 1px;
-  background: #D1D5DB;
-  margin: 0.75rem auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--disclaimer-text-muted), transparent);
+  margin: var(--space-3, 0.75rem) auto 0;
+  border-radius: 2px;
 }
 
 .bci-disclaimer-box p {
-  margin-bottom: 0.9rem;
+  margin-bottom: var(--space-4, 1rem);
+  color: var(--disclaimer-text-muted);
 }
+
+/* =========================================================
+   ACTIONS (STICKY FOOTER)
+========================================================= */
 
 .disclaimer-actions {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1.75rem;
-}
-
-.bci-disclaimer-box button {
-  margin-top: 1.5rem;
-  padding: 0.5rem 1.25rem;
-  background: #1c2a39;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-.disclaimer-actions {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1.75rem;
+  gap: var(--space-4, 1rem);
+  padding: var(--space-5, 1.25rem) var(--space-8, 2rem);
+  padding-bottom: calc(var(--space-5, 1.25rem) + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--disclaimer-border);
+  background: var(--disclaimer-bg);
+  flex-shrink: 0;
+  position: sticky;
+  bottom: 0;
 }
 
 #bci-agree-btn,
 .exit-link {
-  height: 40px;
-  padding: 0 1.25rem;
+  min-height: 44px;
+  padding: 0 var(--space-6, 1.5rem);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  font-size: 0.9rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
   line-height: 1;
-  border-radius: 4px;
+  border-radius: 10px;
   box-sizing: border-box;
+  cursor: pointer;
+  transition: background var(--disclaimer-duration), border-color var(--disclaimer-duration),
+    color var(--disclaimer-duration), transform 0.15s var(--disclaimer-ease);
 }
 
 #bci-agree-btn {
-  background: #111827;
+  background: var(--disclaimer-btn-primary);
   color: #fff;
   border: none;
 }
 
+#bci-agree-btn:hover {
+  background: var(--disclaimer-btn-primary-hover);
+}
+
+#bci-agree-btn:active,
+.exit-link:active {
+  transform: scale(0.98);
+}
+
 .exit-link {
   background: transparent;
-  border: 1px solid #D1D5DB;
-  color: #374151;
+  border: 1px solid var(--disclaimer-btn-secondary-border);
+  color: var(--disclaimer-btn-secondary-text);
+  text-decoration: none;
 }
 
-
-/* Overlay fade-in */
-#bci-disclaimer-overlay {
-  opacity: 0;
-  animation: overlayFadeIn 0.35s ease-out forwards;
+.exit-link:hover {
+  border-color: var(--disclaimer-text-muted);
+  color: var(--disclaimer-text);
 }
 
-/* Box slide + fade */
-.bci-disclaimer-box {
-  opacity: 0;
-  transform: translateY(12px);
-  animation: boxSlideIn 0.4s ease-out forwards;
-  animation-delay: 0.1s;
-}
+/* =========================================================
+   MOBILE
+========================================================= */
 
-/* Exit animation */
-#bci-disclaimer-overlay.fade-out {
-  animation: overlayFadeOut 0.25s ease-in forwards;
-}
-
-#bci-disclaimer-overlay.fade-out .bci-disclaimer-box {
-  animation: boxFadeOut 0.2s ease-in forwards;
-}
-
-/* Keyframes */
-@keyframes overlayFadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-@keyframes overlayFadeOut {
-  from { opacity: 1; }
-  to   { opacity: 0; }
-}
-
-@keyframes boxSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
+@media (max-width: 480px) {
+  #bci-disclaimer-overlay {
+    padding: var(--space-3, 0.75rem);
+    align-items: flex-end;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .bci-disclaimer-box {
+    max-height: 92dvh;
+    border-radius: var(--disclaimer-radius) var(--disclaimer-radius) 0 0;
+  }
+
+  .bci-disclaimer-box > h2,
+  .bci-disclaimer-box > p {
+    padding-inline: var(--space-5, 1.25rem);
+  }
+
+  .disclaimer-actions {
+    flex-direction: column;
+    padding-inline: var(--space-5, 1.25rem);
+  }
+
+  .disclaimer-actions #bci-agree-btn,
+  .disclaimer-actions .exit-link {
+    width: 100%;
   }
 }
 
-@keyframes boxFadeOut {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-}
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
   #bci-disclaimer-overlay,
   .bci-disclaimer-box {
     animation: none !important;
-    transform: none !important;
     opacity: 1 !important;
-  }
-}
-
-/* ===============================
-   DISCLAIMER – MOBILE FIX
-=============================== */
-
-.disclaimer-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 9999;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 1rem;
-}
-
-.disclaimer-modal {
-  background: #ffffff;
-  color: #0F172A;
-
-  width: 100%;
-  max-width: 640px;
-  max-height: calc(100vh - 2rem);
-
-  display: flex;
-  flex-direction: column;
-
-  overflow: hidden;
-  border-radius: 6px;
-}
-
-.disclaimer-content {
-  padding: 1.5rem;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-
-  flex: 1 1 auto;
-}
-
-.disclaimer-actions {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-
-  padding: 1rem 1.5rem;
-  border-top: 1px solid #E5E7EB;
-
-  flex-shrink: 0;
-}
-
-@media (max-width: 480px) {
-  .disclaimer-modal {
-    max-width: 100%;
-    border-radius: 4px;
+    transform: none !important;
   }
 
-  .disclaimer-actions {
-    flex-direction: column;
+  #bci-disclaimer-overlay.fade-out {
+    opacity: 0;
   }
 
-  .disclaimer-actions button {
-    width: 100%;
+  #bci-agree-btn,
+  .exit-link {
+    transition: none;
   }
-}
-
-/* ===============================
-   FIX: Mobile scrolling + buttons
-=============================== */
-
-#bci-disclaimer-overlay {
-  padding: 1rem; /* prevents edge clipping on phones */
-}
-
-.bci-disclaimer-box {
-  max-height: 100dvh;
-  width: 100%;
-  overflow: hidden;
-
-  display: flex;
-  flex-direction: column;
-}
-.bci-disclaimer-box > *:not(.disclaimer-actions) {
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  flex: 1 1 auto;
-}
-
-.disclaimer-actions {
-  flex-shrink: 1;
-  position: sticky;
-  bottom: 0;
-  background: #f7eeee;
-  padding-bottom: calc(1rem + env(safe-area-inset-bottom));
 }

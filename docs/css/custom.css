@@ -1,96 +1,161 @@
 /* =========================================================
-   ACCENT SYSTEM (LOCAL, NOT MATERIAL-DEPENDENT)
+   MODERN DESIGN TOKENS
 ========================================================= */
 
 :root {
-  --accent-color: #9A8356;        /* muted gold */
-  --accent-color-soft: #E7DFC9;
+  /* Palette */
+  --color-accent: #a68b5b;
+  --color-accent-hover: #8b7349;
+  --color-accent-muted: #e8e2d4;
+  --color-accent-subtle: #f5f2eb;
+
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-text-soft: #64748b;
+
+  --color-surface: #ffffff;
+  --color-surface-elevated: #fafaf9;
+  --color-border: #e7e5e4;
+  --color-border-strong: #d6d3d1;
+
+  /* Spacing scale (4px base) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Layout */
+  --content-max: 72rem;
+  --content-narrow: 65ch;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.06), 0 2px 4px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.08), 0 4px 8px rgba(15, 23, 42, 0.04);
+  --shadow-focus: 0 0 0 3px var(--color-accent-muted);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 0.2s;
+  --duration-normal: 0.3s;
 }
 
 /* =========================================================
-   GLOBAL RESET / MATERIAL NEUTRALIZATION
+   GLOBAL / MATERIAL OVERRIDES
 ========================================================= */
 
-/* Remove docs UI */
 .md-nav--secondary,
 .md-sidebar--primary,
 .md-search {
   display: none !important;
 }
 
-/* Main content centering */
 .md-main__inner {
-  max-width: 1300px;
-  margin: 0 auto;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--space-6);
 }
 
 .centered-container {
-  max-width: 1300px;
-  margin: 0 auto;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--space-6);
 }
 
-/* Header + tabs */
+/* Header & navigation */
 .md-header,
 .md-tabs {
-  background: #ffffff !important;
-  color: #0F172A !important;
-  border-bottom: 1px solid #E5E7EB;
+  background: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
 }
 
 .md-header__title,
 .md-tabs__link {
-  color: #0F172A !important;
+  color: var(--color-text) !important;
 }
 
-/* Active tab */
 .md-tabs__link--active {
-  color: #0F172A !important;
-  border-bottom: 2px solid var(--accent-color);
+  color: var(--color-text) !important;
+  border-bottom: 2px solid var(--color-accent);
+  font-weight: 500;
 }
 
-/* Icons */
 .md-icon,
 .md-header__button,
 .md-tabs__link svg {
-  color: #0F172A !important;
-  fill: #0F172A !important;
+  color: var(--color-text) !important;
+  fill: var(--color-text) !important;
+}
+
+/* Navbar layout */
+.md-tabs__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--space-6);
+}
+
+.md-tabs__list {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: var(--space-2);
+}
+
+.md-tabs__item {
+  flex: 0 0 auto;
 }
 
 /* Links */
 .md-typeset a {
-  color: #0F172A !important;
+  color: var(--color-text) !important;
   text-decoration: underline;
-  text-decoration-color: #CBD5E1;
+  text-decoration-color: var(--color-border);
+  text-underline-offset: 0.15em;
+  transition: color var(--duration-fast) var(--ease-out),
+              text-decoration-color var(--duration-fast) var(--ease-out);
 }
 
 .md-typeset a:hover {
-  color: #020617 !important;
-  text-decoration-color: var(--accent-color);
+  color: var(--color-accent-hover) !important;
+  text-decoration-color: var(--color-accent);
 }
 
 /* Buttons */
 .md-button {
   background: transparent !important;
-  color: #0F172A !important;
-  border: 1px solid #CBD5E1;
+  color: var(--color-text) !important;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: background var(--duration-fast), border-color var(--duration-fast);
 }
 
 .md-button:hover {
-  background: #F8FAFC;
-  border-color: #94A3B8;
+  background: var(--color-surface-elevated) !important;
+  border-color: var(--color-border-strong);
 }
 
 /* Focus & selection */
 :focus-visible {
-  outline: 2px solid #CBD5E1 !important;
+  outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
 
 ::selection {
-  background: #E5E7EB;
+  background: var(--color-accent-muted);
 }
 
-/* Kill any leftover Material tint hooks */
 [data-md-color-primary],
 [data-md-color-accent] {
   background: none !important;
@@ -98,147 +163,166 @@
 }
 
 /* =========================================================
-   NAVBAR JUSTIFICATION (CENTERED)
+   TYPOGRAPHY & CONTENT
 ========================================================= */
 
-.md-tabs__inner {
-  max-width: 1100px;
-  margin: 0 auto;
+.md-typeset {
+  --md-typeset-a-color: var(--color-text);
 }
 
-.md-tabs__list {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+.md-typeset p,
+.md-typeset li,
+.md-typeset blockquote,
+.md-typeset td,
+.md-typeset th {
+  text-align: justify;
+  hyphens: none;
 }
 
-.md-tabs__item {
-  flex: 0 0 auto;
+.md-typeset p {
+  text-indent: 0 !important;
+  line-height: 1.7;
+}
+
+.md-typeset p + p {
+  text-indent: 1.5em;
+}
+
+@media (max-width: 768px) {
+  .md-typeset p,
+  .md-typeset li,
+  .md-typeset blockquote {
+    text-align: left;
+    hyphens: none;
+  }
 }
 
 /* =========================================================
-   PEOPLE GRID
+   PEOPLE PAGE – MODERN CARD LAYOUT
 ========================================================= */
 
 .people-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-
-  max-width: 1100px;
-  margin: 2.75rem auto;
-  padding: 0 1.5rem;
+  gap: var(--space-8);
+  max-width: var(--content-max);
+  margin: var(--space-12) auto;
+  padding-inline: var(--space-4);
 }
 
-/* =========================================================
-   PERSON CARD
-========================================================= */
-
 .person-card {
-  background: #ffffff;
-  border: 1px solid #E5E7EB;
-  border-radius: 4px;
-
-  padding: 1.75rem 2rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
   text-align: center;
   cursor: pointer;
-
-  font-size: 0.75rem;
-  line-height: 1.5;
-
+  position: relative;
+  overflow: hidden;
   transition:
-    box-shadow 0.25s ease,
-    transform 0.25s ease,
-    opacity 0.25s ease,
-    border-color 0.25s ease;
+    box-shadow var(--duration-normal) var(--ease-out),
+    transform var(--duration-normal) var(--ease-out),
+    border-color var(--duration-normal) var(--ease-out),
+    opacity var(--duration-normal) var(--ease-out);
+}
+
+/* Subtle top accent when expanded */
+.person-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--color-accent);
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease-out);
 }
 
 .person-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
-  border-color: var(--accent-color-soft);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-accent-muted);
 }
 
-/* Expanded */
 .person-card.expanded {
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-accent-muted);
 }
 
-/* Dim inactive */
-.people-grid.has-active .person-card:not(.expanded) {
-  opacity: 0.6;
+.person-card.expanded::before {
+  opacity: 1;
 }
 
-/* =========================================================
-   PHOTO
-========================================================= */
+/* Dim inactive cards when one is expanded (using :has) */
+.people-grid:has(.person-card.expanded) .person-card:not(.expanded) {
+  opacity: 0.65;
+}
 
 .person-photo {
-  width: clamp(100px, 10vw, 130px);
-  height: auto;
+  width: clamp(112px, 12vw, 140px);
+  aspect-ratio: 1;
+  object-fit: cover;
   display: block;
-  margin: 0 auto 0.75rem;
-  border-radius: 3px;
-
-  transition: filter 0.25s ease;
+  margin-inline: auto var(--space-4);
+  border-radius: var(--radius-md);
+  transition: filter var(--duration-normal) var(--ease-out);
 }
 
 .person-card:hover .person-photo {
-  filter: saturate(105%);
+  filter: saturate(1.08);
 }
-
-/* =========================================================
-   NAME & ROLE
-========================================================= */
 
 .person-card h3 {
   margin: 0;
-  font-size: 1.05rem;
+  font-size: clamp(1rem, 2vw, 1.15rem);
   font-weight: 600;
-  letter-spacing: 0.01em;
-  color: #0F172A;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  transition: color var(--duration-fast);
 }
 
-.person-card:hover h3 {
-  color: var(--accent-color);
+.person-card:hover h3,
+.person-card.expanded h3 {
+  color: var(--color-accent);
 }
 
 .person-role {
-  margin-top: 0.25rem;
-  font-size: 0.85rem;
-  color: #64748B;
+  margin-top: var(--space-1);
+  font-size: 0.875rem;
+  color: var(--color-text-soft);
+  font-weight: 500;
 }
-
-/* =========================================================
-   BIO (EXPANDING CONTENT)
-========================================================= */
 
 .person-bio {
   display: none;
-  margin-top: 1.1rem;
-  font-size: 0.85rem;
-  line-height: 1.65;
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  text-align: left;
 }
 
 .person-card.expanded .person-bio {
   display: block;
-  animation: fadeSlideIn 220ms ease-out;
+  animation: bioReveal 0.35s var(--ease-out) forwards;
 }
 
 .person-bio p {
-  margin-bottom: 0.75rem;
+  margin-bottom: var(--space-4);
   text-align: justify;
   hyphens: auto;
 }
 
-/* =========================================================
-   ANIMATION
-========================================================= */
+.person-bio p:last-child {
+  margin-bottom: 0;
+}
 
-@keyframes fadeSlideIn {
+@keyframes bioReveal {
   from {
     opacity: 0;
-    transform: translateY(-4px);
+    transform: translateY(-8px);
   }
   to {
     opacity: 1;
@@ -247,17 +331,29 @@
 }
 
 /* =========================================================
-   MOBILE
+   RESPONSIVE
 ========================================================= */
 
 @media (max-width: 768px) {
+  .md-main__inner {
+    padding-inline: var(--space-4);
+  }
+
   .people-grid {
     grid-template-columns: 1fr;
-    padding: 0 1rem;
+    gap: var(--space-6);
+    margin: var(--space-8) auto;
+    padding-inline: var(--space-2);
+  }
+
+  .person-card {
+    padding: var(--space-6);
   }
 
   .person-bio {
-    font-size: 0.9rem;
+    font-size: 0.9375rem;
+    margin-top: var(--space-5);
+    padding-top: var(--space-5);
   }
 
   .person-bio p {
@@ -271,41 +367,11 @@
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
-}
-/* =========================================================
-   GLOBAL TEXT JUSTIFICATION
-========================================================= */
-
-/* Justify all readable content */
-.md-typeset p,
-.md-typeset li,
-.md-typeset blockquote,
-.md-typeset td,
-.md-typeset th {
-  text-align: justify;
-  hyphens: none;
-}
-
-
-.md-typeset p {
-  text-indent: 0 !important;
-}
-
-@media (max-width: 768px) {
-  .md-typeset p,
-  .md-typeset li,
-  .md-typeset blockquote {
-    text-align: left;
-    hyphens: none;
-  }
-}
-.md-typeset p {
-  line-height: 1.65;
-}
-.md-typeset p + p {
-  text-indent: 1.5em;
 }
