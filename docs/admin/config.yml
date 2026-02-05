@@ -1,11 +1,13 @@
 backend:
   name: github
   repo: akhildp/simha-sarva
-  branch: master # Checked via git status earlier
+  branch: master
+  
+local_backend: true
 
 # Media settings
 media_folder: docs/images
-public_folder: images
+public_folder: /simha-sarva/images
 
 # Site URL for preview
 site_url: https://akhildp.github.io/simha-sarva/

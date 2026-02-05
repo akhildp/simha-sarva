@@ -804,3 +804,12 @@
     display: block;
   }
 }
+
+/* =========================================================
+   CMS PREVIEW DEFAULTS
+   (Ensures Inter font is applied in the CMS iframe)
+========================================================= */
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--color-text);
+}

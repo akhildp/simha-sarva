@@ -19,7 +19,7 @@ Having served as Civil Judges and Magistrates, our founding partners have spent 
   </div>
 </div>
 
-<img src="images/books.jfif" alt="Legal reference materials" />
+<img src="/simha-sarva/images/books.jfif" alt="Legal reference materials" />
 <span class="image-caption">Legal reference materials</span>
 
 The information on this website is provided for general informational purposes only.

@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,8 +8,15 @@
   <!-- Identity Widget for Netlify - optional if using direct GitHub backend, but useful if moved to Netlify later -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
+
 <body>
   <!-- Include the script that builds the page and powers Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    CMS.registerPreviewStyle("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+    CMS.registerPreviewStyle("../css/custom.css");
+    CMS.registerPreviewStyle("../css/disclaimer.css");
+  </script>
 </body>
+
 </html>
