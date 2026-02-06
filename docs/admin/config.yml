@@ -3,7 +3,6 @@ backend:
   branch: master
   identity_url: "https://heartfelt-axolotl-2d5788.netlify.app/.netlify/identity"
   gateway_url: "https://heartfelt-axolotl-2d5788.netlify.app/.netlify/git"
-  base_url: "https://akhildp.github.io"
   
 # local_backend: true
 
