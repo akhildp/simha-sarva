@@ -5,6 +5,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager</title>
+  <script>
+    // Enforce GitHub Pages Domain
+    // If the user lands on the Netlify app (backend), redirect them to the GitHub Pages site (frontend)
+    if (window.location.hostname.includes("netlify.app")) {
+      window.location.href = "https://akhildp.github.io/simha-sarva/admin/";
+    }
+  </script>
   <!-- Identity Widget for Netlify - optional if using direct GitHub backend, but useful if moved to Netlify later -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"
     data-url="https://heartfelt-axolotl-2d5788.netlify.app"></script>
