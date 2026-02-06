@@ -1,7 +1,7 @@
 <div class="page-hero">
   <h1 class="hero-title">Simha & Sarwa Associates</h1>
   <p class="hero-tagline">Judicial Insight. Strategic Advocacy.</p>
-  <img src="/simha-sarva/images/courthouse.jpg" alt="Courts and legal institutions" class="hero-image" />
+  <img src="images/courthouse.jpg" alt="Courts and legal institutions" class="hero-image" />
 </div>
 
 Welcome to the digital gateway of Simha & Sarwa Associates, a full-service law firm based in Hyderabad. Founded by former members of the judiciary, our firm is built on the belief that effective legal representation requires a deep understanding of both the letter of the law and the mechanics of judicial decision-making.
@@ -35,5 +35,5 @@ At Simha & Sarwa Associates, we offer a rare vantage point. Our founding partner
 
 *Coming soon.*
 
-<img src="/simha-sarva/images/lawlibrary.jpg" alt="Law library" />
+<img src="images/lawlibrary.jpg" alt="Law library" />
 <span class="image-caption">Library reference image for illustrative purposes</span>
