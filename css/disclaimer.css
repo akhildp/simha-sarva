@@ -1,0 +1,265 @@
+/* =========================================================
+   MODERN DISCLAIMER MODAL – DESIGN TOKENS
+========================================================= */
+
+:root {
+  --disclaimer-bg: #fafaf9;
+  --disclaimer-border: #e7e5e4;
+  --disclaimer-text: #1c1917;
+  --disclaimer-text-muted: #57534e;
+  --disclaimer-overlay: rgba(15, 23, 42, 0.5);
+  --disclaimer-radius: 16px;
+  --disclaimer-shadow: 0 24px 48px rgba(15, 23, 42, 0.12), 0 8px 16px rgba(15, 23, 42, 0.08);
+  --disclaimer-btn-primary: #1c1917;
+  --disclaimer-btn-primary-hover: #292524;
+  --disclaimer-btn-secondary-border: #d6d3d1;
+  --disclaimer-btn-secondary-text: #44403c;
+  --disclaimer-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --disclaimer-duration: 0.3s;
+}
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+#bci-disclaimer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4, 1rem);
+  background: var(--disclaimer-overlay);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  animation: disclaimerOverlayIn 0.35s var(--disclaimer-ease) forwards;
+}
+
+#bci-disclaimer-overlay.fade-out {
+  animation: disclaimerOverlayOut 0.25s var(--disclaimer-ease) forwards;
+}
+
+@keyframes disclaimerOverlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes disclaimerOverlayOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+/* =========================================================
+   MODAL BOX
+========================================================= */
+
+.bci-disclaimer-box {
+  background: var(--disclaimer-bg);
+  color: var(--disclaimer-text);
+  width: 100%;
+  max-width: 42rem;
+  max-height: min(88vh, 90dvh);
+  border-radius: var(--disclaimer-radius);
+  box-shadow: var(--disclaimer-shadow);
+  border: 1px solid var(--disclaimer-border);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(0.6875rem, 1.25vw, 0.75rem);
+  line-height: 1.55;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(16px) scale(0.98);
+  animation: disclaimerBoxIn 0.4s var(--disclaimer-ease) 0.06s forwards;
+}
+
+#bci-disclaimer-overlay.fade-out .bci-disclaimer-box {
+  animation: disclaimerBoxOut 0.22s var(--disclaimer-ease) forwards;
+}
+
+@keyframes disclaimerBoxIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes disclaimerBoxOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(8px) scale(0.99);
+  }
+}
+
+/* Scrollable body */
+.bci-disclaimer-box > h2,
+.bci-disclaimer-box > p {
+  padding-inline: var(--space-8, 2rem);
+  padding-top: var(--space-8, 2rem);
+}
+
+.bci-disclaimer-box > p {
+  padding-bottom: var(--space-4, 1rem);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  flex: 1 1 auto;
+  margin: 0;
+}
+
+.bci-disclaimer-box h2 {
+  text-align: center;
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--space-4, 1rem);
+  color: var(--disclaimer-text);
+  flex-shrink: 0;
+}
+
+.bci-disclaimer-box h2::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--disclaimer-text-muted), transparent);
+  margin: var(--space-3, 0.75rem) auto 0;
+  border-radius: 2px;
+}
+
+.bci-disclaimer-box p {
+  margin-bottom: var(--space-4, 1rem);
+  color: var(--disclaimer-text-muted);
+  text-align: justify;
+  hyphens: none;
+}
+
+/* =========================================================
+   ACTIONS (STICKY FOOTER)
+========================================================= */
+
+.disclaimer-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4, 1rem);
+  padding: var(--space-5, 1.25rem) var(--space-8, 2rem);
+  padding-bottom: calc(var(--space-5, 1.25rem) + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--disclaimer-border);
+  background: var(--disclaimer-bg);
+  flex-shrink: 0;
+  position: sticky;
+  bottom: 0;
+}
+
+#bci-agree-btn,
+.exit-link {
+  min-height: 44px;
+  padding: 0 var(--space-6, 1.5rem);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1;
+  border-radius: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: background var(--disclaimer-duration), border-color var(--disclaimer-duration),
+    color var(--disclaimer-duration), transform 0.15s var(--disclaimer-ease);
+}
+
+#bci-agree-btn {
+  background: var(--disclaimer-btn-primary);
+  color: #fff;
+  border: none;
+}
+
+#bci-agree-btn:hover {
+  background: var(--disclaimer-btn-primary-hover);
+}
+
+#bci-agree-btn:active,
+.exit-link:active {
+  transform: scale(0.98);
+}
+
+.exit-link {
+  background: transparent;
+  border: 1px solid var(--disclaimer-btn-secondary-border);
+  color: var(--disclaimer-btn-secondary-text);
+  text-decoration: none;
+}
+
+.exit-link:hover {
+  border-color: var(--disclaimer-text-muted);
+  color: var(--disclaimer-text);
+}
+
+#bci-agree-btn:focus-visible,
+.exit-link:focus-visible {
+  outline: 2px solid var(--disclaimer-text);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+  #bci-disclaimer-overlay {
+    padding: var(--space-3, 0.75rem);
+    align-items: flex-end;
+  }
+
+  .bci-disclaimer-box {
+    max-height: 92dvh;
+    border-radius: var(--disclaimer-radius) var(--disclaimer-radius) 0 0;
+  }
+
+  .bci-disclaimer-box > h2,
+  .bci-disclaimer-box > p {
+    padding-inline: var(--space-5, 1.25rem);
+  }
+
+  .disclaimer-actions {
+    flex-direction: column;
+    padding-inline: var(--space-5, 1.25rem);
+  }
+
+  .disclaimer-actions #bci-agree-btn,
+  .disclaimer-actions .exit-link {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  #bci-disclaimer-overlay,
+  .bci-disclaimer-box {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  #bci-disclaimer-overlay.fade-out {
+    opacity: 0;
+  }
+
+  #bci-agree-btn,
+  .exit-link {
+    transition: none;
+  }
+}

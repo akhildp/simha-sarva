@@ -1,0 +1,816 @@
+/* =========================================================
+   MODERN DESIGN TOKENS
+========================================================= */
+
+:root {
+  /* Palette */
+  --color-accent: #a68b5b;
+  --color-accent-hover: #8b7349;
+  --color-accent-muted: #e8e2d4;
+  --color-accent-subtle: #f5f2eb;
+
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-text-soft: #64748b;
+
+  --color-surface: #ffffff;
+  --color-surface-elevated: #fafaf9;
+  --color-border: #e7e5e4;
+  --color-border-strong: #d6d3d1;
+
+  /* Spacing scale (4px base) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Layout */
+  --content-max: 72rem;
+  --content-narrow: 65ch;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.06), 0 2px 4px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.08), 0 4px 8px rgba(15, 23, 42, 0.04);
+  --shadow-focus: 0 0 0 3px var(--color-accent-muted);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 0.2s;
+  --duration-normal: 0.3s;
+}
+
+/* =========================================================
+   GLOBAL / MATERIAL OVERRIDES
+========================================================= */
+
+/* Hide sidebar and search on desktop only; allow drawer to show on mobile (< 1220px) */
+@media (min-width: 1220px) {
+
+  .md-nav--secondary,
+  .md-sidebar--primary,
+  .md-search {
+    display: none !important;
+  }
+}
+
+.md-main__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--space-6);
+}
+
+.centered-container {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--space-6);
+}
+
+/* Header & navigation */
+.md-header,
+.md-tabs {
+  background: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.md-header__title,
+.md-tabs__link {
+  color: var(--color-text) !important;
+}
+
+.md-tabs__link--active {
+  color: var(--color-text) !important;
+  border-bottom: 2px solid var(--color-accent);
+  font-weight: 500;
+}
+
+.md-icon,
+.md-header__button,
+.md-tabs__link svg {
+  color: var(--color-text) !important;
+  fill: var(--color-text) !important;
+}
+
+/* Navbar layout */
+.md-tabs__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--space-6);
+}
+
+.md-tabs__list {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: var(--space-2);
+}
+
+.md-tabs__item {
+  flex: 0 0 auto;
+}
+
+/* Links */
+.md-typeset a {
+  color: var(--color-text) !important;
+  text-decoration: underline;
+  text-decoration-color: var(--color-border);
+  text-underline-offset: 0.15em;
+  transition: color var(--duration-fast) var(--ease-out),
+    text-decoration-color var(--duration-fast) var(--ease-out);
+}
+
+.md-typeset a:hover {
+  color: var(--color-accent-hover) !important;
+  text-decoration-color: var(--color-accent);
+}
+
+/* Buttons */
+.md-button {
+  background: transparent !important;
+  color: var(--color-text) !important;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: background var(--duration-fast), border-color var(--duration-fast);
+}
+
+.md-button:hover {
+  background: var(--color-surface-elevated) !important;
+  border-color: var(--color-border-strong);
+}
+
+/* Focus & selection */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.md-tabs__link:focus-visible,
+.md-header__button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--color-accent-muted);
+}
+
+/* Mobile drawer header override */
+.md-nav__header,
+.md-nav--primary .md-nav__header {
+  background: var(--color-surface) !important;
+  background-color: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.md-nav__title,
+.md-nav--primary .md-nav__title {
+  color: var(--color-text) !important;
+  font-weight: 600;
+  background: transparent !important;
+}
+
+.md-nav__button,
+.md-nav--primary .md-nav__button {
+  color: var(--color-text) !important;
+}
+
+/* Ensure global primary override hits the drawer too */
+:root {
+  --md-primary-fg-color: var(--color-text);
+  --md-primary-bg-color: var(--color-surface);
+}
+
+/* =========================================================
+   SKIP LINK
+========================================================= */
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-accent);
+  color: var(--color-surface) !important;
+  font-weight: 500;
+  text-decoration: none;
+  transform: translateY(-100%);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+[data-md-color-primary],
+[data-md-color-accent] {
+  background: none !important;
+  color: inherit !important;
+}
+
+/* =========================================================
+   TYPOGRAPHY & CONTENT
+========================================================= */
+
+.md-typeset {
+  --md-typeset-a-color: var(--color-text);
+}
+
+.md-typeset p,
+.md-typeset li,
+.md-typeset blockquote,
+.md-typeset td,
+.md-typeset th {
+  text-align: justify;
+  hyphens: none;
+}
+
+.md-typeset p {
+  text-indent: 0 !important;
+  line-height: 1.7;
+}
+
+.md-typeset p+p {
+  text-indent: 1.5em;
+}
+
+@media (max-width: 768px) {
+
+  .md-typeset p,
+  .md-typeset li,
+  .md-typeset blockquote {
+    text-align: left;
+    hyphens: none;
+  }
+}
+
+/* =========================================================
+   HEADING HIERARCHY
+========================================================= */
+
+.md-typeset h1:first-child {
+  margin-top: 0;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.md-typeset h1:not(:first-child) {
+  margin-top: var(--space-12);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-2);
+  border-bottom: 2px solid var(--color-border);
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.md-typeset h2 {
+  margin-top: var(--space-10);
+  margin-bottom: var(--space-3);
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.md-typeset h2+p,
+.md-typeset h3+p {
+  margin-top: 0;
+}
+
+.md-typeset h3 {
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-2);
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* =========================================================
+   PAGE HERO (HOME)
+========================================================= */
+
+.page-hero {
+  background: linear-gradient(180deg, var(--color-accent-subtle) 0%, var(--color-surface) 100%);
+  border-radius: var(--radius-lg);
+  padding: var(--space-10) var(--space-8);
+  margin-bottom: var(--space-10);
+  text-align: center;
+  border: 1px solid var(--color-border);
+}
+
+.page-hero .hero-title {
+  margin: 0 0 var(--space-2);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--color-text);
+  line-height: 1.15;
+}
+
+.page-hero .hero-tagline {
+  margin: 0 0 var(--space-6);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 500;
+  color: var(--color-accent);
+  letter-spacing: 0.02em;
+}
+
+.page-hero .hero-image {
+  width: 100%;
+  max-width: 56rem;
+  height: auto;
+  max-height: 20rem;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  display: block;
+  margin-inline: auto;
+}
+
+/* =========================================================
+   SECTION PANELS & CARDS
+========================================================= */
+
+.section-panel {
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6) var(--space-8);
+  margin-bottom: var(--space-6);
+}
+
+.section-panel h2 {
+  margin-top: 0;
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  color: var(--color-text);
+}
+
+.section-panel:first-child h2 {
+  margin-top: 0;
+}
+
+.content-grid,
+.foundation-grid,
+.advantages-grid {
+  display: grid;
+  gap: var(--space-6);
+  margin: var(--space-6) 0;
+}
+
+.foundation-grid,
+.advantages-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+}
+
+.content-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  transition: box-shadow var(--duration-normal) var(--ease-out),
+    border-color var(--duration-normal) var(--ease-out);
+}
+
+.content-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-accent-muted);
+}
+
+.content-card__title {
+  margin: 0 0 var(--space-2);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  letter-spacing: 0.01em;
+}
+
+.content-card__text {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--color-text);
+  text-align: justify;
+}
+
+/* Practice areas: same card style, full-width cards in a stack or grid */
+.practice-grid {
+  display: grid;
+  gap: var(--space-6);
+  margin: var(--space-8) 0;
+}
+
+.practice-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6) var(--space-8);
+  border-inline-start: 4px solid var(--color-accent);
+  transition: box-shadow var(--duration-normal) var(--ease-out),
+    border-color var(--duration-normal) var(--ease-out);
+}
+
+.practice-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-accent-muted);
+  border-inline-start-color: var(--color-accent);
+}
+
+.practice-card__title {
+  margin: 0 0 var(--space-2);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.practice-card__text {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  text-align: justify;
+}
+
+/* =========================================================
+   SECTION DIVIDERS
+========================================================= */
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+  margin: var(--space-10) 0;
+  border: none;
+}
+
+/* =========================================================
+   IMAGES (GLOBAL)
+========================================================= */
+
+.md-typeset img {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.md-typeset p img {
+  margin: var(--space-4) 0;
+}
+
+.md-typeset figure,
+.md-typeset .image-caption {
+  margin: var(--space-4) 0 var(--space-6);
+}
+
+.md-typeset img+em,
+.md-typeset .image-caption {
+  display: block;
+  margin-top: var(--space-2);
+  font-size: 0.875rem;
+  color: var(--color-text-soft);
+  font-style: normal;
+  text-align: center;
+}
+
+/* =========================================================
+   PEOPLE PAGE – MODERN CARD LAYOUT
+========================================================= */
+
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8);
+  max-width: var(--content-max);
+  margin: var(--space-12) auto;
+  padding-inline: var(--space-4);
+}
+
+.person-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition:
+    box-shadow var(--duration-normal) var(--ease-out),
+    transform var(--duration-normal) var(--ease-out),
+    border-color var(--duration-normal) var(--ease-out),
+    opacity var(--duration-normal) var(--ease-out);
+}
+
+/* Subtle top accent when expanded */
+.person-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--color-accent);
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease-out);
+}
+
+.person-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-accent-muted);
+}
+
+.person-card.expanded {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-accent-muted);
+}
+
+.person-card.expanded::before {
+  opacity: 1;
+}
+
+/* Dim inactive cards when one is expanded (using :has) */
+.people-grid:has(.person-card.expanded) .person-card:not(.expanded) {
+  opacity: 0.65;
+}
+
+.person-photo {
+  width: clamp(112px, 12vw, 140px);
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto var(--space-4);
+  border-radius: var(--radius-md);
+  transition: filter var(--duration-normal) var(--ease-out);
+}
+
+.person-card:hover .person-photo {
+  filter: saturate(1.08);
+}
+
+.person-card h3 {
+  margin: 0;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  transition: color var(--duration-fast);
+  text-align: center;
+}
+
+.person-card:hover h3,
+.person-card.expanded h3 {
+  color: var(--color-accent);
+}
+
+.person-role {
+  margin: var(--space-1) 0 0;
+  font-size: 0.875rem;
+  color: var(--color-text-soft);
+  font-weight: 500;
+  text-align: center;
+}
+
+.person-bio {
+  display: none;
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  text-align: left;
+}
+
+.person-card.expanded .person-bio {
+  display: block;
+  animation: bioReveal 0.35s var(--ease-out) forwards;
+}
+
+.person-bio p {
+  margin-bottom: var(--space-4);
+  text-align: justify;
+  hyphens: auto;
+}
+
+.person-bio p:last-child {
+  margin-bottom: 0;
+}
+
+@keyframes bioReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+  .md-main__inner {
+    padding-inline: var(--space-4);
+  }
+
+  .page-hero {
+    padding: var(--space-6) var(--space-4);
+    margin-bottom: var(--space-8);
+  }
+
+  .section-panel {
+    padding: var(--space-5) var(--space-5);
+  }
+
+  .foundation-grid,
+  .advantages-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .content-card,
+  .practice-card {
+    padding: var(--space-5);
+  }
+
+  .practice-card {
+    padding-inline-start: var(--space-5);
+    border-inline-start-width: 3px;
+  }
+
+  .people-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    margin: var(--space-8) auto;
+    padding-inline: var(--space-2);
+  }
+
+  .person-card {
+    padding: var(--space-6);
+  }
+
+  .person-bio {
+    font-size: 0.875rem;
+    margin-top: var(--space-5);
+    padding-top: var(--space-5);
+  }
+
+  .person-bio p {
+    text-align: left;
+    hyphens: none;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.site-footer {
+  margin-top: 0;
+  padding: var(--space-8) var(--space-6);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface-elevated);
+}
+
+.site-footer__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.site-footer__copy,
+.site-footer__disclaimer,
+.site-footer__link {
+  margin: 0 0 var(--space-2);
+  font-size: 0.75rem;
+  color: var(--color-text-soft);
+}
+
+.site-footer__link {
+  margin-bottom: 0;
+}
+
+.site-footer__link a {
+  color: var(--color-accent) !important;
+}
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+.back-to-top {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-6);
+  z-index: 100;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent);
+  color: var(--color-surface);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: background var(--duration-fast), transform var(--duration-fast);
+}
+
+.back-to-top:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+}
+
+.back-to-top:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print {
+
+  .skip-link,
+  .md-header,
+  .md-tabs,
+  .back-to-top,
+  #bci-disclaimer-overlay {
+    display: none !important;
+  }
+
+  .md-main__inner {
+    max-width: none;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  .md-typeset a {
+    color: #000 !important;
+  }
+
+  .person-card.expanded .person-bio {
+    display: block;
+  }
+
+  .person-bio {
+    display: block;
+  }
+}
+
+/* =========================================================
+   CMS PREVIEW DEFAULTS
+   (Ensures Inter font is applied in the CMS iframe)
+========================================================= */
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--color-text);
+}
