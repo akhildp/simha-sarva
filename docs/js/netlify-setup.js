@@ -1,12 +1,12 @@
-// Define the API URL for all environments to ensure consistency
-const apiUrl = "https://heartfelt-axolotl-2d5788.netlify.app/.netlify/identity";
+// Check if we are on the live Netlify site
+const isNetlify = window.location.hostname.includes("netlify.app");
 
 // Dynamically load the widget script
 const script = document.createElement('script');
 script.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
 
-// If we are on the external site (GitHub Pages), we MUST use data-url to point to Netlify
-if (!window.location.hostname.includes("netlify.app")) {
+// Only add data-url if we are NOT on Netlify (External context needs to know where home is)
+if (!isNetlify) {
     script.setAttribute('data-url', "https://heartfelt-axolotl-2d5788.netlify.app");
 }
 
@@ -16,10 +16,14 @@ document.head.appendChild(script);
 // Ensure init is called after script load
 script.onload = function () {
     if (window.netlifyIdentity) {
-        // Explicitly initialize with the API URL everywhere
-        // This ensures the widget on the Netlify side knows exactly where to look for the token
-        window.netlifyIdentity.init({
-            APIUrl: apiUrl
-        });
+        if (isNetlify) {
+            // On the Netlify site (Popup), use generic init to let the widget auto-detect its role
+            window.netlifyIdentity.init({});
+        } else {
+            // On GitHub Pages (Opener), force connection to the remote Netlify instance
+            window.netlifyIdentity.init({
+                APIUrl: "https://heartfelt-axolotl-2d5788.netlify.app/.netlify/identity"
+            });
+        }
     }
 };
