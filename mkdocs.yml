@@ -30,7 +30,6 @@ nav:
 
 extra_javascript:
   - js/netlify-setup.js
-  - https://identity.netlify.com/v1/netlify-identity-widget.js
   - js/skip-link.js
   - js/disclaimer-popup.js
   - js/people-toggle.js
