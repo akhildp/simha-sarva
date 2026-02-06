@@ -10,20 +10,22 @@
     data-url="https://heartfelt-axolotl-2d5788.netlify.app"></script>
   <script>
     // Force manual init to ensure the API URL is respected
-    if (window.netlifyIdentity) {
-      // Re-init just in case, though data-url handles most cases
-      window.netlifyIdentity.init({
-        APIUrl: "https://heartfelt-axolotl-2d5788.netlify.app/.netlify/identity"
-      });
+    // We must wait for the DOM to be ready because the widget tries to append elements to the body
+    document.addEventListener("DOMContentLoaded", function () {
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.init({
+          APIUrl: "https://heartfelt-axolotl-2d5788.netlify.app/.netlify/identity"
+        });
 
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    });
   </script>
 </head>
 
