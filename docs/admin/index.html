@@ -6,10 +6,10 @@
   <script>
     // Enforce GitHub Pages Domain - CRITICAL
     // We must check this immediately before loading ANY other assets
-    if (window.location.hostname.includes("netlify.app")) {
-      window.stop(); // Stop loading the rest of the broken Netlify page
-      // Preserve the hash (which contains the access_token) when redirecting!
-      window.location.replace("https://akhildp.github.io/simha-sarva/admin/" + window.location.hash);
+    // BUT we must allow the auth popup (which has an opener) to load the widget script!
+    if (window.location.hostname.includes("netlify.app") && !window.opener) {
+      window.stop(); // Stop loading only if we are a lost user (not a popup)
+      window.location.replace("https://akhildp.github.io/simha-sarva/admin/");
     }
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
